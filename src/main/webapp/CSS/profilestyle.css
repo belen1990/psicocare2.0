@@ -1,0 +1,27 @@
+.error{color: red;
+    font-size: 12px;
+
+}
+
+#errorcambiarpassword{color: red;
+    font-size: 12px;
+
+}
+
+#errorpasswordnuevo{color: red;
+    font-size: 12px;
+
+}
+
+#cambiarpassword{color: blue;
+    font-size: 12px;
+
+}
+
+#passwordcorrecto{color:green;
+    font-size: 12px;
+
+}
+
+
+

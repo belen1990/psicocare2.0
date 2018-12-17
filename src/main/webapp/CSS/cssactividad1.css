@@ -1,0 +1,65 @@
+body{font-family: gotham;
+    font-style: normal;
+font-size: 20;
+color: rgb(2, 2, 37);
+background:white;
+text-align: justify;
+}
+
+#bodypad {padding: 20px}
+#logo {
+    display: inline-block;
+    margin-bottom: 0px;
+    width: 70px;
+    margin-top: 13px;
+    padding-bottom: 1px;
+}
+#menuderecha {
+    font-size: 50px;
+    font-family: "gotham";}
+audio {
+        display: inline-block;
+        width: 100%;
+        padding: 50
+        px 20px;
+        }
+h1{margin: 20px;
+    background-color:white;
+    color: grey;
+    border:white (157, 216, 183);
+    border-radius: 15px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;}
+
+@font-face {
+    font-family: gotham;
+    src: url('esta.otf');
+   unicode-range: U+00-52F, U+1E00-1FFF, U+2200–22FF;
+  }
+p{
+    color: grey; font-style: inherit;}
+
+footer{
+    padding: 50px;
+    width: 100%;
+
+    }
+  .miboton {
+    border: yellow solid 1px;; 
+    background-color: white ;
+    border-radius: 10px;
+    color: black;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    float: 20%;
+    font-size: 2em;
+    margin: 10px 10px 10px 10px;
+    padding: 10px;
+    }
+    
+    .miboton:hover{
+    background: yellow;
+    border: white solid;
+    cursor: pointer;
+    }

@@ -1,0 +1,93 @@
+body{font-family: gotham;
+    font-style: normal;
+font-size: 20;
+color: rgb(2, 2, 37);
+background-color: #90CAF9;
+margin: 250px;
+padding: 15px;
+text-align: justify;
+font-weight: 300;
+margin-top: 100px;
+}
+
+button#login{background: rgb(247, 165, 72);
+    padding: 0;
+    border: 0px;
+    color: white;
+    text-shadow: 2px 2px 10px #02306b;
+    position: relative;
+    display: inline-block;
+
+    
+
+}
+#soyh3{
+    
+    margin-left:500px;
+
+}
+@font-face {
+    font-family: gotham;
+    src: url('./CSS/esta.otf');
+   unicode-range: U+00-52F, U+1E00-1FFF, U+2200–22FF;
+  }
+
+header{margin: 20px;
+border: rgb(157, 216, 183);
+border-radius: 15px;}
+
+h1#psico{position: absolute;
+font-size: 200px;}
+
+h1{position: absolute;
+    font-size: 200px;
+padding-bottom: 100px;
+color: rgb(83, 172, 245);
+text-shadow: 2px 2px 10px #02306b;
+}
+
+
+h3{border: salmon solid 5px;
+border-radius:25px;
+border-block-start-width: 5px;
+border-block-end-width: -50px;
+width: 180px;
+background-color: lightcoral;
+color: white;
+text-align: center;
+font-size: 16px;
+}
+
+body>div {border: 5px dashed;
+    border-color: rgb(83, 172, 245);
+   align-content: center; 
+   display: block;
+   width: 1300px;
+
+}
+
+body>div > #brain {width: 1000px;
+
+}
+
+
+progress{background-color: rgb(157, 216, 183);}
+
+p {margin-right: 25px;}
+
+ul{list-style-type:  color darkblue;}
+
+div{ margin: 30px;
+    display: inline-block; 
+}
+
+@media screen and (max-width:768px){
+    div{width: 100%;}
+   
+
+   }
+
+@media screen and (min-width:368px){
+   div{width: 100%;}
+    
+}

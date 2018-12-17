@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Context>
+<Context>
+    <!-- Specify a JDBC datasource -->
+    <Resource name="jdbc/psicocare" auth="Container"
+        type="javax.sql.DataSource" username="psicocare_user" password="psicokiller"
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost/psicocare"
+        maxActive="10" maxIdle="4" />
+</Context>
+

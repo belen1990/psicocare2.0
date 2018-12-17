@@ -1,0 +1,543 @@
+  ul{
+list-style-type:  none;
+  }
+
+  li{
+  font-size:28px; 
+  text-align:center;
+  }
+section .hidden {
+  display: none;
+  .inputines
+  {
+    text-align:center;
+
+    float:center;
+    margin-left:420px;
+  }
+
+  .labelines{
+
+    margin-left: 200px;
+  }
+
+  .ida{
+    width: 10px;
+  }
+
+  .cajaopcions{
+    border: 5px solid rgb(165, 155, 155);
+    border-radius:25px;
+    padding:25px;
+    width: 600px;
+    /*background?*/
+  }
+
+  .inputina1
+{
+margin-left: 60px;
+}
+
+.inputina2
+{
+margin-left: 90px;
+}
+.inputina3
+{
+margin-left: 92px;
+}
+.inputina4
+{
+margin-left: 95px;
+}
+.inputina5
+{
+margin-left: 100px;
+}
+
+
+.vuelta{
+
+  width: 10px;
+  -webkit-transform: rotate(180deg);
+  
+
+
+}
+
+.botoninput{
+  background-position: 100%;
+  background-color: transparent;
+  color: black;
+  border:none;
+  
+}
+.botoninput:hover {
+  color: #fff;
+  border: 3px solid #c266d3;
+  background-image: -webkit-linear-gradient(30deg, #c266d3 50%, transparent 50%);
+  background-image: linear-gradient(30deg, #c266d3 50%, transparent 50%);
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-position: 0%;
+  -webkit-transition: background 300ms ease-in-out;
+  transition: background 300ms ease-in-out;
+}
+
+
+textarea::placeholder {
+  color: rgb(19, 5, 5);  
+}
+
+
+
+
+ .labelinesconflicto
+ {
+
+  color:black; 
+  font-family:gotham;
+  font-size:15px;
+  margin-left: 320px;
+  margin-bottom: -15px;
+
+ }
+ #finalprogress{
+  margin-left: 40px;
+  
+    }
+
+
+    @font-face {
+      font-family: gotham;
+      src: url('/FONTS/esta.otf');
+     unicode-range: U+00-52F, U+1E00-1FFF, U+2200–22FF;
+    }
+/*Cosillas*/
+
+
+
+#logo {
+  display: inline-block;
+  margin-bottom: 0px;
+  width: 70px;
+  margin-top: 13px;
+  padding-bottom: 1px;
+}
+
+div .brandname {
+  display: inline-block !important;
+  font-family: gotham;
+font-style: normal;
+font-size: 20px;
+color: white;
+text-align: justify;
+}
+
+
+/*Header tal cual*/
+
+header  {
+  border: none;
+  position: relative;
+}
+
+
+}
+.blue.lighten-3 {
+  background-color: #90CAF9 !important;
+  border: none;
+  position: relative;
+  height: 100%;
+  font-size: 2.1rem;
+  margin-top:-50px;
+  margin-bottom:-1px;
+  -webkit-box-shadow: 0 5px 6px -6px #777;
+  -moz-box-shadow: 0 8px 6px -6px #777;
+  box-shadow: 0 8px 6px -6px #777;
+
+}
+
+
+#navid {
+  background-color: #90CAF9 !important;
+  border: none;
+  width:100%;
+  position: relative;
+  font-size: 2.1rem;
+  margin-top:-50px;
+  margin-bottom:-1px;
+  -webkit-box-shadow: 0 5px 6px -6px #777;
+  -moz-box-shadow: 0 8px 6px -6px #777;
+  box-shadow: 0 8px 6px -6px #777;
+
+}
+
+
+div .brandname{display: inline-block !important}
+#logo {
+    display: inline-block;
+    margin-bottom: 0px;
+    width: 70px;
+    margin-top: 13px;
+    padding-top:26px;
+    padding-bottom: 1px;
+    font-size: 2rem;
+
+}
+
+nav .brand-logo {
+    position: absolute;
+    display:inline-block;
+    font-size: 2.1rem;
+    padding: 0;
+    width: 270px;
+    height: 60px;
+    color: #fff;
+    margin-left:0px;
+
+  
+}
+
+#menuderecha {
+    font-size: 50px;
+    font-family: "gotham";    
+}
+#cabecera {margin: 20px;
+    background-color: rgb(208, 238, 221);
+    border: 1px;;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 30px
+ }
+ a.waves-effect.waves-light.btn-large {
+    width: 100%;
+    height: 100px;
+    line-height: 2em;
+    padding: 30px;
+    padding-left: 20%;
+} 
+
+
+
+body {
+  font-family: gotham;
+  font-style: normal;
+  font-size: 20px;
+  color: rgb(2, 2, 37);
+  background: white;
+  text-align: justify;
+  margin: 0px;;
+  font-weight: 300;
+  padding:20;
+
+
+ }
+
+/*#bodypad {padding: 20px} Que hago con esto*/ 
+
+
+/*Resultados Style*/
+
+
+
+
+@font-face {
+  font-family: gotham;
+  src: url('/FONTS/esta.otf');
+ unicode-range: U+00-52F, U+1E00-1FFF, U+2200–22FF;
+}
+
+header{
+background-color: rgb(208, 238, 221);
+border:white;
+border-radius: 15px;}
+
+h1{text-align: center;}
+
+h2{border: white solid 5px;
+border-radius:25px;
+border-block-start-width: 5px;
+border-block-end-width: -50px;
+width: 180px;
+background-color: rgb(151, 153, 241);
+color: white;
+text-align: center;
+font-size: 20px;
+}
+
+progress{background-color: rgb(157, 216, 183);}
+
+p {margin-right: 25px;}
+
+ul{list-style-type:  color darkblue;}
+
+div{ margin: 30px;
+  display: inline-block; 
+}
+
+
+
+ 
+#res2 {text-align: left;
+display: inline-block; }
+ 
+
+/* Hay que llenar tantos media como dispositivos a los que se quiera dar servicio. Atender al punto de corte de resolucion de cada dispositivo para ajustar max-width: en @media*/
+
+@media only screen and (max-width: 15000px) {
+  progress[value] {
+    width: 800px;
+    height: 20px;
+  }
+  input{ position: relative;
+    align-items: center;
+    }
+}
+
+
+
+@media only screen and (max-width: 1305px) {
+    progress[value] {
+      width: 600px;
+      height: 20px;
+    }
+
+  }
+
+  @media only screen and (max-width: 1100px) {
+    progress[value] {
+      width: 300px;
+      height: 20px;
+    }
+
+
+  }
+
+  @media only screen and (max-width: 812px) {
+    #res2{display:none;}
+    progress[value] {
+      width: 300px;
+      height: 20px;
+    }
+
+
+    @media only screen and (max-width: 610px) {
+      #res2{display:none; ;}
+      progress[value] {
+        width: 200px;
+        height: 20px;
+    }
+
+    @media only screen and (max-width: 520px) {
+      #res2{display:none; ;}
+      progress[value] {
+        width: 200px;
+        height: 20px;
+    }
+    #test5{width: 250px;margin-left:20%;}
+  
+  
+  }
+
+      
+    @media only screen and (max-width: 490px) {
+      #res2{display:none;}
+      progress[value] {
+       
+        width: 150px;
+        height: 20px;
+      }
+      @media only screen and (max-width: 449px) {
+        #res2{display:none;}
+        progress[value] {
+         
+          width: 150px;
+          height: 20px;
+        }
+  
+
+      @media only screen and (max-width: 417px) {
+        #res2{display:none;}
+        progress[value] {
+          width: 150px;
+          height: 20px;
+          
+        }
+        @media only screen and (max-width: 360px) {
+          #res2{display:none;}
+          #test5{width: 210px;margin-left:20%;}
+
+          progress[value] {
+            display: none;
+            
+          }
+
+          
+
+/* Añadidos para el conflicto en CSS en el test 5. eS EL CSS PARA RANGE-FIELD COMO SE ENCUENTRA EN https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css*/
+
+/* Range
+   ========================================================================== */
+   .range-field {
+    position: relative;
+  }
+  
+  input[type=range],
+  input[type=range] + .thumb {
+    cursor: pointer;
+  }
+  
+  input[type=range] {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    margin: 15px 0;
+    padding: 0;
+  }
+  
+  input[type=range]:focus {
+    outline: none;
+  }
+  
+  input[type=range] + .thumb {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    border: none;
+    height: 0;
+    width: 0;
+    border-radius: 50%;
+    background-color: #26a69a;
+    margin-left: 7px;
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  
+  input[type=range] + .thumb .value {
+    display: block;
+    width: 30px;
+    text-align: center;
+    color: #26a69a;
+    font-size: 0;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  
+  input[type=range] + .thumb.active {
+    border-radius: 50% 50% 50% 0;
+  }
+  
+  input[type=range] + .thumb.active .value {
+    color: #fff;
+    margin-left: -1px;
+    margin-top: 8px;
+    font-size: 10px;
+  }
+  
+  input[type=range] {
+    -webkit-appearance: none;
+  }
+  
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 3px;
+    background: #c2c0c2;
+    border: none;
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    border: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: #26a69a;
+    -webkit-transition: -webkit-box-shadow .3s;
+    transition: -webkit-box-shadow .3s;
+    transition: box-shadow .3s;
+    transition: box-shadow .3s, -webkit-box-shadow .3s;
+    -webkit-appearance: none;
+    background-color: #26a69a;
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    margin: -5px 0 0 0;
+  }
+  
+  .keyboard-focused input[type=range]:focus:not(.active)::-webkit-slider-thumb {
+    -webkit-box-shadow: 0 0 0 10px rgba(38, 166, 154, 0.26);
+            box-shadow: 0 0 0 10px rgba(38, 166, 154, 0.26);
+  }
+  
+  input[type=range] {
+    /* fix for FF unable to apply focus style bug  */
+    border: 1px solid white;
+    /*required for proper track sizing in FF*/
+  }
+  
+  input[type=range]::-moz-range-track {
+    height: 3px;
+    background: #c2c0c2;
+    border: none;
+  }
+  
+  input[type=range]::-moz-focus-inner {
+    border: 0;
+  }
+  
+  input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: #26a69a;
+    -webkit-transition: -webkit-box-shadow .3s;
+    transition: -webkit-box-shadow .3s;
+    transition: box-shadow .3s;
+    transition: box-shadow .3s, -webkit-box-shadow .3s;
+    margin-top: -5px;
+  }
+  
+  input[type=range]:-moz-focusring {
+    outline: 1px solid #fff;
+    outline-offset: -1px;
+  }
+  
+  .keyboard-focused input[type=range]:focus:not(.active)::-moz-range-thumb {
+    box-shadow: 0 0 0 10px rgba(38, 166, 154, 0.26);
+  }
+  
+  input[type=range]::-ms-track {
+    height: 3px;
+    background: transparent;
+    border-color: transparent;
+    border-width: 6px 0;
+    /*remove default tick marks*/
+    color: transparent;
+  }
+  
+  input[type=range]::-ms-fill-lower {
+    background: #777;
+  }
+  
+  input[type=range]::-ms-fill-upper {
+    background: #ddd;
+  }
+  
+  input[type=range]::-ms-thumb {
+    border: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: #26a69a;
+    -webkit-transition: -webkit-box-shadow .3s;
+    transition: -webkit-box-shadow .3s;
+    transition: box-shadow .3s;
+    transition: box-shadow .3s, -webkit-box-shadow .3s;
+  }
+  
+  .keyboard-focused input[type=range]:focus:not(.active)::-ms-thumb {
+    box-shadow: 0 0 0 10px rgba(38, 166, 154, 0.26);
+  }

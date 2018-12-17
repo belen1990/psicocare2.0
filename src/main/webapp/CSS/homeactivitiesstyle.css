@@ -1,0 +1,50 @@
+#logo {
+    display: inline-block;
+    margin-bottom: 0px;
+    width: 70px;
+    margin-top: 13px;
+    padding-bottom: 1px;
+}
+#menuderecha {
+    font-size: 50px;
+    font-family: "gotham";  }
+    
+body{font-family: gotham;
+    font-style: normal;
+font-size: 20px;
+color: rgb(2, 2, 37);
+background:white; 
+text-align: justify;}
+
+@font-face {
+    font-family: gotham;
+    src: url('esta.otf');
+   unicode-range: U+00-52F, U+1E00-1FFF, U+2200–22FF;
+  }
+ 
+
+h1{margin: 20px;
+    background-color: rgb(208, 238, 221);
+    border: 1px;;
+    border-radius: 15px;
+    text-align: center;
+    display: block;
+}
+
+section{background: white; 
+border: color lightcoral solid 1px;
+display:block;
+margin: auto;
+text-align: center;
+}
+
+ section > div > div >a{width: 100%; height:100%;
+        background: lightpink;
+        border: 1px;
+        display: inline-block;
+        padding: 60px !important;
+        margin: 10px !important;     
+       border-radius: 20px;
+      font-size-adjust: initial;
+        }
+

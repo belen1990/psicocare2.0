@@ -1,0 +1,32 @@
+body{font-family: gotham;
+    font-style: normal;
+font-size: 20;
+color: rgb(2, 2, 37);
+background:white; 
+padding: 15px;
+font-weight: 300;}
+
+h2{display: inline-block;
+}
+
+@font-face {
+    font-family: gotham;
+    src: url('./fuentes/esta.otf');
+   unicode-range: U+00-52F, U+1E00-1FFF, U+2200–22FF;
+  }
+
+h2 {background-color: salmon;
+    color: white;
+    border-radius: 50px;
+    border: 1px solid;
+    border-color: black;
+    box-shadow: black;
+    padding: 20px;
+    text-align: center;}
+
+#alertas {padding-top: 100px;}
+
+#tema {padding-top: 20px;}
+
+#pin {padding-top: 100px;}
+

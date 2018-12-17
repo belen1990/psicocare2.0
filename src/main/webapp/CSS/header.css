@@ -1,0 +1,18 @@
+#logo {
+    display: inline-block;
+    margin-bottom: 0px;
+    width: 70px;
+    margin-top: 13px;
+    padding-bottom: 1px;
+}
+#menuderecha {
+    font-size: 50px;
+    font-family: "gotham";    
+}
+@font-face {
+    font-family: gotham;
+    src: url('./FONTS/esta.otf');
+   unicode-range: U+00-52F, U+1E00-1FFF, U+2200–22FF;
+  }
+.menuleft {display: inline-block}
+.menuright {display: inline-block}
