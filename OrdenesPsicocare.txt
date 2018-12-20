@@ -1,20 +1,20 @@
 GET
-Curl –H “token: “  http://localhost:8080/Psicocare/api/) (menu , homeactivities, login, taketest1 progress, config, aboutus)
+Curl â€“H â€œtoken: â€œ  http://localhost:8080/psicocare/api/) (menu , homeactivities, login, taketest1 progress, config, aboutus)
 
 POST
 NEW USER
-curl -X POST -d "{\"id\":0,\"name\":\"…………….. \",\"email\":\"…………… \", \"password\":\"…………… \"}" -H “token: “ ………" http://localhost:8080/PedidosREST/api/register -v
+curl -X POST -d "{\"id\":0,\"name\":\"â€¦â€¦â€¦â€¦â€¦.. \",\"email\":\"â€¦â€¦â€¦â€¦â€¦ \", \"password\":\"â€¦â€¦â€¦â€¦â€¦ \"}" -H â€œtoken: â€œ â€¦â€¦â€¦" http://localhost:8080/psicocare/api/register -v
 (id, name, email, password, test)
 PUT
-NEW USER
-curl -X PUT -d "{\"id\":0,\"name\":\"…………….. \",\"email\":\"…………… \", \"password\":\"…………… \"}" -H "token" http://localhost:8080/PedidosREST/api/ profile/”id” –v
+UPDATE USER
+curl -X PUT -d "{\"id\":0,\"name\":\"â€¦â€¦â€¦â€¦â€¦.. \",\"email\":\"â€¦â€¦â€¦â€¦â€¦ \", \"password\":\"â€¦â€¦â€¦â€¦â€¦ \"}" -H "token" http://localhost:8080/psicocare/api/profile/â€idâ€ â€“v
 (id, name, email, password, test)
 
-NEW TEST
-curl -X PUT -d "{\" tid \":1, ,\" respuesta1\":1,\" respuesta2\":2,\" respuesta3\":3,\" respuesta4\":4,\" respuesta5\":5,\" anxiety\":1,\" depression\":1,\" social anxiety\":1,\" stress\":1}"  -H "token" http://localhost:8080/PedidosREST/api/profile/”id”/taketest1 –v
+UPDATE TEST
+curl -X PUT -d "{\" tid \":1, ,\" respuesta1\":1,\" respuesta2\":2,\" respuesta3\":3,\" respuesta4\":4,\" respuesta5\":5,\" anxiety\":1,\" depression\":1,\" social anxiety\":1,\" stress\":1}"  -H "token" http://localhost:8080/psicocare/api/profile/â€idâ€/taketest1 â€“v
 (int tid, int respuesta1, int respuesta2, int respuesta3, int respuesta4, int respuesta5, double anxiety,	double depression, double social_anxiety, double stress)
 
 DELETE
 
 DELETE USER
-curl -X DELETE  http://localhost:8080/PedidosREST/api/profile/"id" -v
+curl -X DELETE  http://localhost:8080/psicocare/api/profile/"id" -v
