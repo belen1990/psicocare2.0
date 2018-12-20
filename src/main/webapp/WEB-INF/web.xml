@@ -2,90 +2,109 @@
 
 <web-app version="3.1">
 
- <display-name>Archetype Created Web Application</display-name>
- <servlet>
-   <description>
-        </description>
-   <display-name>TakeTest1Servlet</display-name>
-   <servlet-name>TakeTest1Servlet</servlet-name>
-   <servlet-class>com.psicocare.controllers.TakeTest1Servlet</servlet-class>
- </servlet>
- <servlet>
-   <description>
-        </description>
-   <display-name>MenuServlet</display-name>
-   <servlet-name>MenuServlet</servlet-name>
-   <servlet-class>com.psicocare.controllers.MenuServlet</servlet-class>
- </servlet>
- <servlet>
-   <display-name>ResultadosServlet</display-name>
-   <servlet-name>ResultadosServlet</servlet-name>
-   <servlet-class>com.psicocare.controllers.ResultadosServlet
-        </servlet-class>
- </servlet>
- <servlet-mapping>
-   <servlet-name>TakeTest1Servlet</servlet-name>
-   <url-pattern>/test</url-pattern>
- </servlet-mapping>
- <servlet-mapping>
-   <servlet-name>MenuServlet</servlet-name>
-   <url-pattern>/menu</url-pattern>
- </servlet-mapping>
- <servlet-mapping>
-   <servlet-name>ResultadosServlet</servlet-name>
-   <url-pattern>/resultados</url-pattern>
- </servlet-mapping>
- <servlet>
-   <description>
-     </description>
-   <display-name>RegisterServlett</display-name>
-   <servlet-name>RegisterServlett</servlet-name>
-   <servlet-class>com.psicocare.controllers.RegisterServlett</servlet-class>
- </servlet>
- <servlet>
-   <description>
-     </description>
-   <display-name>LoginServlett</display-name>
-   <servlet-name>LoginServlett</servlet-name>
-   <servlet-class>com.psicocare.controllers.LoginServlett</servlet-class>
- </servlet>
- <servlet-mapping>
-   <servlet-name>RegisterServlett</servlet-name>
-   <url-pattern>/Register</url-pattern>
- </servlet-mapping>
- <servlet-mapping>
-   <servlet-name>LoginServlett</servlet-name>
-   <url-pattern>/Login</url-pattern>
- </servlet-mapping>
- <servlet>
-   <description></description>
-   <display-name>ActivitiesServlet</display-name>
-   <servlet-name>ActivitiesServlet</servlet-name>
-   <servlet-class>com.psicocare.controllers.ActivitiesServlet</servlet-class>
- </servlet>
- <servlet-mapping>
-   <servlet-name>ActivitiesServlet</servlet-name>
-   <url-pattern>/activities</url-pattern>
- </servlet-mapping>
- <servlet>
-   <description></description>
-   <display-name>HomeActivitiesServlet</display-name>
-   <servlet-name>HomeActivitiesServlet</servlet-name>
-   <servlet-class>com.psicocare.controllers.HomeActivitiesServlet</servlet-class>
- </servlet>
- <servlet-mapping>
-   <servlet-name>HomeActivitiesServlet</servlet-name>
-   <url-pattern>/homeactivities</url-pattern>
- </servlet-mapping>
-<servlet>
-    <description></description>
-    <display-name>ProgressServlet</display-name>
-    <servlet-name>ProgressServlet</servlet-name>
-    <servlet-class>com.psicocare.controllers.ProgressServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ProgressServlet</servlet-name>
-    <url-pattern>/progress</url-pattern>
-  </servlet-mapping>
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>jersey-servlet</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer
+		</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>com.ricardo.services</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>jersey-servlet</servlet-name>
+		<url-pattern>/api/*</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+
+		<filter-name>CORS</filter-name>
+
+		<filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
+
+
+		<init-param>
+
+			<param-name>cors.allowGenericHttpRequests</param-name>
+
+			<param-value>true</param-value>
+
+		</init-param>
+
+
+		<init-param>
+
+			<param-name>cors.allowOrigin</param-name>
+
+			<param-value>*</param-value>
+
+		</init-param>
+
+
+		<init-param>
+
+			<param-name>cors.allowSubdomains</param-name>
+
+			<param-value>false</param-value>
+
+		</init-param>
+
+
+		<init-param>
+
+			<param-name>cors.supportedMethods</param-name>
+
+			<param-value>GET, HEAD, POST, PUT, DELETE, OPTIONS</param-value>
+
+		</init-param>
+
+
+		<init-param>
+
+			<param-name>cors.supportedHeaders</param-name>
+
+			<param-value>*, Content-Type, X-Requested-With, username, password,
+				token</param-value>
+
+		</init-param>
+
+
+		<init-param>
+
+			<param-name>cors.supportsCredentials</param-name>
+
+			<param-value>true</param-value>
+
+		</init-param>
+
+
+		<init-param>
+
+			<param-name>cors.maxAge</param-name>
+
+			<param-value>3600</param-value>
+
+		</init-param>
+
+	</filter>
+
+
+	<filter-mapping>
+
+		<!-- CORS Filter mapping -->
+
+
+		<filter-name>CORS</filter-name>
+
+		<url-pattern>*</url-pattern>
+
+	</filter-mapping>
 </web-app>
 
