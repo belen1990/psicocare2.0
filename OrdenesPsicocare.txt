@@ -9,14 +9,12 @@ curl http://localhost:8080/Psicocare/api/users/13 -v
 
 
 POST NEW USER
-curl -X POST -d "{\"id\":0,\"name\":\"â€¦â€¦â€¦â€¦â€¦.. \",\"email\":\"â€¦â€¦â€¦â€¦â€¦ \", \"password\":\"â€¦â€¦â€¦â€¦â€¦ \", \"username\":\"â€¦â€¦â€¦â€¦â€¦ \"}" -H â€œtoken: â€œ â€¦â€¦â€¦" http://localhost:8080/psicocare/api/register -v
-(id, name, email, password, test, username)
+
 
 curl -X POST -d "{\"id\":0,\"name\":\"belen \",\"email\":\"belen_lau@hotmail.com \", \"password\":\"eligetu \", \"username\":\"belen1990 \"}"         -H "Content-Type: application/json"    http://localhost:8080/Psicocare/api/users -v
 PUT
 UPDATE USER
-curl -X PUT -d "{\"id\":0,\"name\":\"â€¦â€¦â€¦â€¦â€¦.. \",\"email\":\"â€¦â€¦â€¦â€¦â€¦ \", \"password\":\"â€¦â€¦â€¦â€¦â€¦ \"}" -H "token" http://localhost:8080/psicocare/api/profile/â€�idâ€� â€“v
-(id, name, email, password, test)
+curl -X PUT -d "{\"email\":\"b@b.es\",\"name\":\"belen\", \"password\":\"belen\",\"username\":\"belen\"}" -H "Content-Type: application/json" http://localhost:8080/Psicocare/api/users/2 -v
 
 UPDATE TEST
 curl -X PUT -d "{\" tid \":1, ,\" respuesta1\":1,\" respuesta2\":2,\" respuesta3\":3,\" respuesta4\":4,\" respuesta5\":5,\" anxiety\":1,\" depression\":1,\" social anxiety\":1,\" stress\":1}"  -H "token" http://localhost:8080/psicocare/api/profile/â€�idâ€�/taketest1 â€“v
@@ -25,4 +23,5 @@ curl -X PUT -d "{\" tid \":1, ,\" respuesta1\":1,\" respuesta2\":2,\" respuesta3
 DELETE
 
 DELETE USER
-curl -X DELETE  http://localhost:8080/psicocare/api/profile/"id" -v
+
+curl -X DELETE  http://localhost:8080/Psicocare/api/users/15 -v

@@ -1,5 +1,7 @@
 package com.psicocare.DAO;
 
+import java.io.Serializable;
+
 import java.sql.Connection;
 
 import java.sql.DriverManager;
@@ -9,12 +11,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.psicocare.models.Activity;
 import com.psicocare.models.Test;
 import com.psicocare.models.User;
 
-public class UserDAO extends DAO  {
+public class UserDAO extends DAO {
 
 	protected UserDAO() throws Exception {
 		super();
@@ -30,9 +35,6 @@ public class UserDAO extends DAO  {
 		return instance;
 	}
 
-	
-	
-	
 //	public boolean subidausuario(String nombrerec, String emailrec, String userrec, String password1rec, Double anxiedad, Double depresion, Double estres, Double anxiedadsocial,Double R1,Double R2,Double R3,Double R4,Double R5) throws SQLException {
 //		
 //		
@@ -135,148 +137,133 @@ public class UserDAO extends DAO  {
 
 	public boolean getuserbyusarnameormailandpassword(String username, String passwordrec) throws SQLException {
 
-		boolean ok=false;
-		
+		boolean ok = false;
+
 		String url = "jdbc:mysql://localhost/psicoCare";
 
 		Connection conn = DriverManager.getConnection(url, "psicocare_user", "psicokiller");
 
-		
-		String sql = "SELECT `name`,`password`,`username`FROM `usuario` WHERE Username=? OR email=? AND password=?;"; 
-		 PreparedStatement psmt = conn.prepareStatement(sql);
+		String sql = "SELECT `name`,`password`,`username`FROM `usuario` WHERE Username=? OR email=? AND password=?;";
+		PreparedStatement psmt = conn.prepareStatement(sql);
 
-			psmt.setString(1,username);
-			psmt.setString(2,username );
-			psmt.setString(3,passwordrec );//Añadir nombre de usuario en tabla de datos final
-		
-		
-			 psmt.close();
-			 conn.close();
-		
-		
+		psmt.setString(1, username);
+		psmt.setString(2, username);
+		psmt.setString(3, passwordrec);// Añadir nombre de usuario en tabla de datos final
+
+		psmt.close();
+		conn.close();
+
 		return ok;
-		
-		
-					
-			
-		}
 
+	}
 
+	public boolean checkmail(String emailrec) {
 
-
-	public boolean checkmail( String emailrec) {
-
-		boolean vale=false;
+		boolean vale = false;
 		try {
-		Connection	conn = datasource.getConnection();
-		String sql = "SELECT count(*) email FROM usuario  WHERE  email=?"; 
-			//Count realiza la cuenta de cuantos elementos cumplen la condicion especificada en where.
-			//En este caso contara cuantas veces hay un usuario en la tabla usuario que tenga los valores
-			//introducidos en el formulario
-			
-		 PreparedStatement psmt = conn.prepareStatement(sql);
-		 psmt.setString(1,emailrec );
-		 //Añadir nombre de usuario en tabla de datos final
-		 ResultSet rs=	psmt.executeQuery();
-		 int count=0;	
-		 while(rs.next())
-		 count=rs.getInt(1);
-		 if(count==0)	{
-		 System.out.println("El usuario no esta en la base de datos");			
-		 vale=true;}
-		 if (count!=0) {
-		 System.out.println("El usuario ya esta");		
-		 vale=false;}				
-		 psmt.close();
-		 conn.close();
+			Connection conn = datasource.getConnection();
+			String sql = "SELECT count(*) email FROM usuario  WHERE  email=?";
+			// Count realiza la cuenta de cuantos elementos cumplen la condicion
+			// especificada en where.
+			// En este caso contara cuantas veces hay un usuario en la tabla usuario que
+			// tenga los valores
+			// introducidos en el formulario
+
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setString(1, emailrec);
+			// Añadir nombre de usuario en tabla de datos final
+			ResultSet rs = psmt.executeQuery();
+			int count = 0;
+			while (rs.next())
+				count = rs.getInt(1);
+			if (count == 0) {
+				System.out.println("El usuario no esta en la base de datos");
+				vale = true;
+			}
+			if (count != 0) {
+				System.out.println("El usuario ya esta");
+				vale = false;
+			}
+			psmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-return vale;
+		return vale;
 	}
-
-
-
 
 	public boolean checkuser(String userrec) {
-		boolean vale=false;
+		boolean vale = false;
 		try {
-		Connection	conn = datasource.getConnection();
-		String sql = "SELECT count(*) username   FROM usuario  WHERE  username=?"; 
-			//Count realiza la cuenta de cuantos elementos cumplen la condicion especificada en where.
-			//En este caso contara cuantas veces hay un usuario en la tabla usuario que tenga los valores
-			//introducidos en el formulario
-			
-		 PreparedStatement psmt = conn.prepareStatement(sql);
-		 psmt.setString(1,userrec );
-		 //Añadir nombre de usuario en tabla de datos final
-		 ResultSet rs=	psmt.executeQuery();
-		 int count=0;	
-		 while(rs.next())
-		 count=rs.getInt(1);
-		 if(count==0)	{
-		 System.out.println("El usuario no esta en la base de datos");			
-		 vale=true;}
-		 if (count!=0) {
-		 System.out.println("El usuario ya esta");		
-		 vale=false;}				
-		 psmt.close();
-		 conn.close();
+			Connection conn = datasource.getConnection();
+			String sql = "SELECT count(*) username   FROM usuario  WHERE  username=?";
+			// Count realiza la cuenta de cuantos elementos cumplen la condicion
+			// especificada en where.
+			// En este caso contara cuantas veces hay un usuario en la tabla usuario que
+			// tenga los valores
+			// introducidos en el formulario
+
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setString(1, userrec);
+			// Añadir nombre de usuario en tabla de datos final
+			ResultSet rs = psmt.executeQuery();
+			int count = 0;
+			while (rs.next())
+				count = rs.getInt(1);
+			if (count == 0) {
+				System.out.println("El usuario no esta en la base de datos");
+				vale = true;
+			}
+			if (count != 0) {
+				System.out.println("El usuario ya esta");
+				vale = false;
+			}
+			psmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-return vale;		
+		return vale;
 	}
-	
-		
-	
+
 	public int getuserbymailandpassword(String mail, String passwordrec) throws SQLException {
 
-		int ID=0;
+		int ID = 0;
 		Connection conn = datasource.getConnection();
 		String sql = "SELECT id FROM usuario WHERE email=? AND password=?;";
 		PreparedStatement psmt = conn.prepareStatement(sql);
 
-		psmt.setString(1,mail);
-		psmt.setString(2,passwordrec );
-		
-	
+		psmt.setString(1, mail);
+		psmt.setString(2, passwordrec);
 
-		
 		psmt.close();
 		conn.close();
-		
+
 		return ID;
-		
-		
-					
-			
-		}
-		
-	
-	
-	
+
+	}
+
 	public boolean validateloginform(String nombrerec, String password) {
 
 		System.out.println("Empieza el metodo para validar el login");
 		boolean ok = true;
 
-		if ((nombrerec == null) || (nombrerec.equals(""))) {//.length comprueba el numero de caracteres
+		if ((nombrerec == null) || (nombrerec.equals(""))) {// .length comprueba el numero de caracteres
 			ok = false;
 			System.out.println("mail/username mal");
 		}
-		
-		 if ((password == null) || (password.equals(""))) {
+
+		if ((password == null) || (password.equals(""))) {
 			ok = false;
-					System.out.println("password mal");
+			System.out.println("password mal");
 		}
 
-		else {}
+		else {
+		}
 
 		System.out.println("Fin del metodo para validar el login");
-		
 
 		// String regex = "[a-zA-Z0-9\\._\\-]{3,}";
 		// OR || OR//
@@ -285,12 +272,9 @@ return vale;
 
 	}
 
-
-
-
-	public User getUserById(int id) throws SQLException{
+	public User getUserById(int id) throws SQLException {
 		User resUser = null;
-		
+
 		Connection conn = datasource.getConnection();
 
 		String sql = "SELECT id, name, email, username FROM `usuario` WHERE id=?";
@@ -301,79 +285,118 @@ return vale;
 
 		while (rs.next()) {
 
-			resUser = new User (
-					rs.getInt(1), 
-					rs.getString(2), 
-					rs.getString(3), 
-					null, 
-					null,
-					rs.getString(4)
-				);
-					
+			resUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), null, null, rs.getString(4));
+
 		}
 		rs.close();
 		psmt.close();
 		conn.close();
-	
-		
-		
+
 		return resUser;
 	}
 
+	public User createNuevo(User usuario) throws SQLException {
+		User ues = usuario;
 
+		Connection conn = datasource.getConnection();
 
+		conn.setAutoCommit(false);
 
-		public User createNuevo(User usuario) throws SQLException {
-			User ues = usuario;
+		try {
+			// INSERTAR USER
+			String sql = "INSERT INTO usuario (email, name, password, username) VALUES (?, ?, ?, ?)";
+			PreparedStatement psmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			psmt.setString(1, usuario.getEmail());
+			psmt.setString(2, usuario.getName());
+			psmt.setString(3, usuario.getPassword());
+			psmt.setString(4, usuario.getUsername());
 
-			
-			Connection conn = datasource.getConnection();
-			
-			conn.setAutoCommit(false);
+			psmt.executeUpdate();
 
-			try {
-				// INSERTAR USER
-				String sql = "INSERT INTO usuario (email, name, password, username) VALUES (?, ?, ?, ?)";
-				PreparedStatement psmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-				psmt.setString(1, usuario.getEmail());
-				psmt.setString(2, usuario.getName());
-				psmt.setString(3, usuario.getPassword());
-				psmt.setString(4, usuario.getUsername());
+			ResultSet rs = psmt.getGeneratedKeys();
 
-				psmt.executeUpdate();
-
-				ResultSet rs = psmt.getGeneratedKeys();
-
-				if (rs.next()) {					
-					ues.setId(rs.getInt(1));
-				}
-
-				rs.close();
-				psmt.close();
-
-				conn.commit();
-			} catch (Exception e) {
-				System.out.println("Excepcion tx:" + e.getMessage());
-				ues = null;
-				conn.rollback();
-				throw new SQLException();
+			if (rs.next()) {
+				ues.setId(rs.getInt(1));
 			}
 
-			conn.close();
+			rs.close();
+			psmt.close();
 
-			return ues;
+			conn.commit();
+		} catch (Exception e) {
+			System.out.println("Excepcion tx:" + e.getMessage());
+			ues = null;
+			conn.rollback();
+			throw new SQLException();
 		}
-	}
-	
-		
-		
-		
-	
-	
-	
-	
-	
-	
-	
-	
 
+		conn.close();
+
+		return ues;
+	}
+
+	public boolean borrarUsuario(int id) throws SQLException {
+		boolean resUser = false;
+
+		Connection conn = datasource.getConnection();
+
+		conn.setAutoCommit(false);
+
+		try {
+			String sql = "DELETE FROM test_usuario WHERE uid=?";
+			PreparedStatement psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, id);
+
+			psmt.executeUpdate();
+			psmt.close();
+
+			sql = "DELETE FROM usuario WHERE id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, id);
+
+			psmt.executeUpdate();
+			resUser = true;
+
+			psmt.close();
+			conn.commit();
+		} catch (Exception e) {
+			System.out.println("Excep Tx:" + e.getMessage());
+			conn.rollback();
+			throw new SQLException();
+		} finally {
+			conn.close();
+		}
+
+		return resUser;
+	}
+
+	public User actualizarUser(User userAct) throws SQLException {
+		User resUser = userAct;
+		
+		Connection conn = datasource.getConnection();
+		
+
+		String sql = "UPDATE usuario SET email=?, name=?, password=?, username=? WHERE id=? ";
+		
+		PreparedStatement psmt = conn.prepareStatement(sql);
+		psmt.setString(1, userAct.getEmail());
+		psmt.setString(2, userAct.getName());
+		psmt.setString(3, userAct.getPassword());
+		psmt.setString(4, userAct.getUsername());
+		psmt.setInt(5, userAct.getId());
+		
+		System.out.println("SQL Update:"+psmt.toString());
+
+		psmt.executeUpdate();
+
+		psmt.close();
+		conn.close();
+
+		return resUser;
+		
+		
+		
+		
+	}
+
+}
