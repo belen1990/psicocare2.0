@@ -1,13 +1,34 @@
 package com.psicocare.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="actividad")
 public class Activity {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int aid;
+	@Column
 	private String statement;
+	@Column
 	private String value;
+	@Column
 	private String content;
+	@Column
 	private String about;
+	@Column
 	private String description;
+	@Column
 	private int countdown;
+	
+	public  Activity() {
+		
+	}
 	
 	public Activity(int aid, String statement, String value, String content, String about, String description,
 			int countdown) {
