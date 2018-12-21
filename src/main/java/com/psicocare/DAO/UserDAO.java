@@ -1,6 +1,7 @@
 package com.psicocare.DAO;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +9,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
 import com.psicocare.models.Activity;
+import com.psicocare.models.Test;
 import com.psicocare.models.User;
 
 public class UserDAO extends DAO  {
@@ -30,105 +33,105 @@ public class UserDAO extends DAO  {
 	
 	
 	
-	public boolean subidausuario(String nombrerec, String emailrec, String userrec, String password1rec, Double anxiedad, Double depresion, Double estres, Double anxiedadsocial,Double R1,Double R2,Double R3,Double R4,Double R5) throws SQLException {
-		
-		
-		boolean ok=false;
-		
-
-		Connection conn = datasource.getConnection();
-
-//		conn.setAutoCommit(false);
-		try {
-		
-			int idusuarioentablausuario_test=0;
-			int idtestentablausuario_test=0;
-
-			System.out.println(emailrec+nombrerec+userrec+password1rec);
-			String sql = "	INSERT INTO usuario (email, name,Username, password) VALUES (?,?,?,?);";
-			
-			PreparedStatement psmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-			psmt.setString(1,emailrec);
-			psmt.setString(2,nombrerec );
-			psmt.setString(3,userrec );
-			psmt.setString(4,password1rec );
-
-			System.out.println(psmt);
-			psmt.executeUpdate();
-
-			ResultSet rs = psmt.getGeneratedKeys();
-			if (rs.next()) {
-			 idusuarioentablausuario_test = rs.getInt(1);
-			System.out.println("idusuario"+idusuarioentablausuario_test);
-			}
-			//rs.close();			
-			rs.close();
-
-			psmt.close();
-			System.out.println("Usuario bien");
-			
-			
-			
-		 sql = "INSERT INTO test( respuesta1, respuesta2, respuesta3, respuesta4, respuesta5, anxiety, depression, social_anxiety, stress) VALUES (?,?,?,?,?,?,?,?,?);";
-		  psmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			
-			psmt.setDouble(1,R1);//Se generan solos o me va a tocar darle al AI?//
-			psmt.setDouble(2,R2 );
-			psmt.setDouble(3,R3 );
-			psmt.setDouble(4,R4 );
-			psmt.setDouble(5,R5 );
-			psmt.setDouble(6, anxiedad );
-			psmt.setDouble(7, depresion);
-			psmt.setDouble(8, estres );
-			psmt.setDouble(9, anxiedadsocial);	
-			
-			System.out.println(psmt);
-
-			psmt.executeUpdate();
-
-			 rs = psmt.getGeneratedKeys();
-			 
-			 if (rs.next()) {
-				 idtestentablausuario_test = rs.getInt(1);
-				System.out.println("idusuario"+idtestentablausuario_test);
-				}
-			 
-				
-			rs.close();
-			psmt.close();
-			System.out.println("Test bien");
-
-			
-			
-			 sql = "INSERT INTO test_usuario(tid, uid) VALUES (?,?);";
-			  psmt = conn.prepareStatement(sql);
-			  psmt.setInt(1,idtestentablausuario_test);
-			  psmt.setInt(2,idusuarioentablausuario_test);
-
-				psmt.executeUpdate();
-				
-				rs.close();
-				psmt.close();
-				conn.close();
-				System.out.println("Usuario-test bien");
-
-
-		} 
-			catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				conn.rollback();
-
-			} 
-			
-			
-			ok=true;
-			
-			
-			return ok;
-		
-
-	}
+//	public boolean subidausuario(String nombrerec, String emailrec, String userrec, String password1rec, Double anxiedad, Double depresion, Double estres, Double anxiedadsocial,Double R1,Double R2,Double R3,Double R4,Double R5) throws SQLException {
+//		
+//		
+//		boolean ok=false;
+//		
+//
+//		Connection conn = datasource.getConnection();
+//
+////		conn.setAutoCommit(false);
+//		try {
+//		
+//			int idusuarioentablausuario_test=0;
+//			int idtestentablausuario_test=0;
+//
+//			System.out.println(emailrec+nombrerec+userrec+password1rec);
+//			String sql = "	INSERT INTO usuario (email, name,Username, password) VALUES (?,?,?,?);";
+//			
+//			PreparedStatement psmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+//			psmt.setString(1,emailrec);
+//			psmt.setString(2,nombrerec );
+//			psmt.setString(3,userrec );
+//			psmt.setString(4,password1rec );
+//
+//			System.out.println(psmt);
+//			psmt.executeUpdate();
+//
+//			ResultSet rs = psmt.getGeneratedKeys();
+//			if (rs.next()) {
+//			 idusuarioentablausuario_test = rs.getInt(1);
+//			System.out.println("idusuario"+idusuarioentablausuario_test);
+//			}
+//			//rs.close();			
+//			rs.close();
+//
+//			psmt.close();
+//			System.out.println("Usuario bien");
+//			
+//			
+//			
+//		 sql = "INSERT INTO test( respuesta1, respuesta2, respuesta3, respuesta4, respuesta5, anxiety, depression, social_anxiety, stress) VALUES (?,?,?,?,?,?,?,?,?);";
+//		  psmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//			
+//			psmt.setDouble(1,R1);//Se generan solos o me va a tocar darle al AI?//
+//			psmt.setDouble(2,R2 );
+//			psmt.setDouble(3,R3 );
+//			psmt.setDouble(4,R4 );
+//			psmt.setDouble(5,R5 );
+//			psmt.setDouble(6, anxiedad );
+//			psmt.setDouble(7, depresion);
+//			psmt.setDouble(8, estres );
+//			psmt.setDouble(9, anxiedadsocial);	
+//			
+//			System.out.println(psmt);
+//
+//			psmt.executeUpdate();
+//
+//			 rs = psmt.getGeneratedKeys();
+//			 
+//			 if (rs.next()) {
+//				 idtestentablausuario_test = rs.getInt(1);
+//				System.out.println("idusuario"+idtestentablausuario_test);
+//				}
+//			 
+//				
+//			rs.close();
+//			psmt.close();
+//			System.out.println("Test bien");
+//
+//			
+//			
+//			 sql = "INSERT INTO test_usuario(tid, uid) VALUES (?,?);";
+//			  psmt = conn.prepareStatement(sql);
+//			  psmt.setInt(1,idtestentablausuario_test);
+//			  psmt.setInt(2,idusuarioentablausuario_test);
+//
+//				psmt.executeUpdate();
+//				
+//				rs.close();
+//				psmt.close();
+//				conn.close();
+//				System.out.println("Usuario-test bien");
+//
+//
+//		} 
+//			catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//				conn.rollback();
+//
+//			} 
+//			
+//			
+//			ok=true;
+//			
+//			
+//			return ok;
+//		
+//
+//	}
 
 	public boolean getuserbyusarnameormailandpassword(String username, String passwordrec) throws SQLException {
 
@@ -139,7 +142,7 @@ public class UserDAO extends DAO  {
 		Connection conn = DriverManager.getConnection(url, "psicocare_user", "psicokiller");
 
 		
-		String sql = "SELECT `name`,`password`,`Username`FROM `usuario` WHERE Username=? OR email=? AND password=?;"; 
+		String sql = "SELECT `name`,`password`,`username`FROM `usuario` WHERE Username=? OR email=? AND password=?;"; 
 		 PreparedStatement psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1,username);
@@ -200,7 +203,7 @@ return vale;
 		boolean vale=false;
 		try {
 		Connection	conn = datasource.getConnection();
-		String sql = "SELECT count(*) Username   FROM usuario  WHERE  Username=?"; 
+		String sql = "SELECT count(*) username   FROM usuario  WHERE  username=?"; 
 			//Count realiza la cuenta de cuantos elementos cumplen la condicion especificada en where.
 			//En este caso contara cuantas veces hay un usuario en la tabla usuario que tenga los valores
 			//introducidos en el formulario
@@ -281,16 +284,88 @@ return vale;
 		return ok;
 
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+	public User getUserById(int id) throws SQLException{
+		User resUser = null;
+		
+		Connection conn = datasource.getConnection();
+
+		String sql = "SELECT id, name, email, username FROM `usuario` WHERE id=?";
+		PreparedStatement psmt = conn.prepareStatement(sql);
+		psmt.setInt(1, id);
+
+		ResultSet rs = psmt.executeQuery();
+
+		while (rs.next()) {
+
+			resUser = new User (
+					rs.getInt(1), 
+					rs.getString(2), 
+					rs.getString(3), 
+					null, 
+					null,
+					rs.getString(4)
+				);
+					
+		}
+		rs.close();
+		psmt.close();
+		conn.close();
 	
 		
 		
+		return resUser;
 	}
+
+
+
+
+		public User createNuevo(User usuario) throws SQLException {
+			User ues = usuario;
+
+			
+			Connection conn = datasource.getConnection();
+			
+			conn.setAutoCommit(false);
+
+			try {
+				// INSERTAR USER
+				String sql = "INSERT INTO usuario (email, name, password, username) VALUES (?, ?, ?, ?)";
+				PreparedStatement psmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+				psmt.setString(1, usuario.getEmail());
+				psmt.setString(2, usuario.getName());
+				psmt.setString(3, usuario.getPassword());
+				psmt.setString(4, usuario.getUsername());
+
+				psmt.executeUpdate();
+
+				ResultSet rs = psmt.getGeneratedKeys();
+
+				if (rs.next()) {					
+					ues.setId(rs.getInt(1));
+				}
+
+				rs.close();
+				psmt.close();
+
+				conn.commit();
+			} catch (Exception e) {
+				System.out.println("Excepcion tx:" + e.getMessage());
+				ues = null;
+				conn.rollback();
+				throw new SQLException();
+			}
+
+			conn.close();
+
+			return ues;
+		}
+	}
+	
+		
 		
 		
 	

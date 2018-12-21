@@ -9,13 +9,25 @@ public class User {
 	private String email;
 	private String password;
 	private Test test;
-	public User(int id, String name, String email, String password, Test test) {
+	private String username;
+	
+	public User() {}
+	
+	public User(int id, String name, String email, String password, Test test, String username) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.password = password;
 		this.test = test;
+		this.username= username;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public int getId() {
 		return id;
@@ -46,6 +58,15 @@ public class User {
 	}
 	public void setTest(Test test) {
 		this.test = test;
+	}
+	public boolean validate() {
+		boolean isValid=true;
+		
+		if(this.email==null || this.email==null || this.name==null ||this.password==null ||this.username==null) isValid=false;
+	
+		
+		return isValid;
+		
 	}
 	
 	
