@@ -10,7 +10,7 @@ public class Test {
 	private int respuesta5; 
 	private double anxiety; 
 	private double depression; 
-	private double social_anxiety; 
+	private double socialanxiety; 
 	private double stress;
 	
 	
@@ -20,7 +20,7 @@ public class Test {
 	}
 	
 	public Test(int tid, int respuesta1, int respuesta2, int respuesta3, int respuesta4, int respuesta5, double anxiety,
-			double depression, double social_anxiety, double stress) {
+			double depression, double socialanxiety, double stress) {
 		super();
 		this.tid = tid;
 		this.respuesta1 = respuesta1;
@@ -30,7 +30,7 @@ public class Test {
 		this.respuesta5 = respuesta5;
 		this.anxiety = anxiety;
 		this.depression = depression;
-		this.social_anxiety = social_anxiety;
+		this.socialanxiety = socialanxiety;
 		this.stress = stress;
 	}
 	public int getTid() {
@@ -81,11 +81,11 @@ public class Test {
 	public void setDepression(double depression) {
 		this.depression = depression;
 	}
-	public double getSocial_anxiety() {
-		return social_anxiety;
+	public double getSocialanxiety() {
+		return socialanxiety;
 	}
-	public void setSocial_anxiety(double social_anxiety) {
-		this.social_anxiety = social_anxiety;
+	public void setSocialanxiety(double socialanxiety) {
+		this.socialanxiety = socialanxiety;
 	}
 	public double getStress() {
 		return stress;
@@ -94,14 +94,19 @@ public class Test {
 		this.stress = stress;
 	} 
 
-	public int getTest(int paso) {
-		
 	
-		
-		
-		
-		return paso;
-		
-	}
+public boolean validate() {
 
+   boolean isValid = true;       
+   if (this.respuesta1 == 0 || this.respuesta2 == 0 || this.respuesta3 == 0 || this.respuesta4 == 0 || this.respuesta5 == 0)
+
+   isValid = false;
+
+  return isValid;
+
+        
+
+        
+
+    }
 }
