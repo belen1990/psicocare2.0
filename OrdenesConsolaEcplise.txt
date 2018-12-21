@@ -1,0 +1,2 @@
+copy target\Psicocare.war C:\belen\workspace\java\apache-tomcat-9.0.13\webapps
+mvn clean install
