@@ -17,8 +17,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.psicocare.DAO.UserDAO;
+import com.psicocare.models.Intermediate;
 import com.psicocare.models.StatusMessage;
+import com.psicocare.models.Test;
 import com.psicocare.models.User;
+
+import javassist.expr.Instanceof;
 
 
 
@@ -48,22 +52,96 @@ public class UserServices {
 		return resp;
 	}
 	
+	@Path("/mail/{email}")
+
+    @GET
+
+    @Produces("application/json")
+
+    
+
+    public Response getmail(@PathParam("email") String email) throws SQLException, Exception {        Response resp = null;
+
+        boolean presente = UserDAO.getInstance().checkmail(email);
+
+        
+
+             if (presente == true) {
+
+            resp = Response.status(202).entity(new StatusMessage(202, "The email is not yet registered")).build();
+
+        } else {
+
+            resp = Response.status(200).entity(new StatusMessage(200, "The email is already in use")).build();        }        return resp;
+
+    }
 	
 	
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response addUsuario(User usuarioNuevo) throws SQLException, Exception {
-		Response resp = null;
+	
+	
+	
+	
+	@Path("/username/{username}")
 
-		if (usuarioNuevo.validate()) {			
-			resp = Response.status(200).entity( UserDAO.getInstance().createNuevo(usuarioNuevo)).build();
-		} else {
-			resp = Response.status(400).entity(new StatusMessage(400, "Faltan campos obligatorios por rellenar")).build();
-		}
+    @GET
 
-		return resp;
+    @Produces("application/json")
+
+    
+
+    public Response getusername(@PathParam("username") String user) throws SQLException, Exception {        Response resp = null;
+
+        boolean presente = UserDAO.getInstance().checkuser(user);
+
+        
+
+             if (presente == true) {
+
+            resp = Response.status(202).entity(new StatusMessage(202, "The username is not yet registered")).build();
+
+        } else {
+
+            resp = Response.status(200).entity(new StatusMessage(200, "The username is already in use")).build();        }        return resp;
+
+    }
+	
+	
+@POST
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public Response addUsuario(User usuarioNuevo) throws SQLException, Exception {
+Response resp = null;
+
+if (usuarioNuevo.validate()) {			
+resp = Response.status(200).entity( UserDAO.getInstance().createNuevo(usuarioNuevo)).build();
+} else {
+resp = Response.status(400).entity(new StatusMessage(400, "Faltan campos obligatorios por rellenar")).build();
 	}
+
+return resp;
+}
+
+
+@Path("/intermediate")
+@POST
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public Response intermediate(Intermediate inter) throws SQLException, Exception {
+Response resp = null;
+Intermediate control =UserDAO.getInstance().intermediate(inter);
+if (control instanceof Intermediate) {
+
+    resp = Response.status(202).entity(new StatusMessage(202, "Intermediate relationship uploaded")).build();
+    return resp;
+
+} else {
+
+    resp = Response.status(200).entity(new StatusMessage(200, "Internal error. Please try again later")).build();        }    
+	return resp;
+
+}
+	
+	
 	
 	
 	@Path("/{id}")

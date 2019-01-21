@@ -130,7 +130,7 @@ public class TestService {
 
         } else {
 
-            testresp = Response.status(400).entity(new StatusMessage(400, "Nose ha podido crear el test")).build();
+            testresp = Response.status(400).entity(new StatusMessage(400, "No se ha podido crear el test")).build();
 
         }
 

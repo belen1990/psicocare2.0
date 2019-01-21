@@ -16,6 +16,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.psicocare.models.Activity;
+import com.psicocare.models.Intermediate;
 import com.psicocare.models.Test;
 import com.psicocare.models.User;
 
@@ -35,105 +36,110 @@ public class UserDAO extends DAO {
 		return instance;
 	}
 
-//	public boolean subidausuario(String nombrerec, String emailrec, String userrec, String password1rec, Double anxiedad, Double depresion, Double estres, Double anxiedadsocial,Double R1,Double R2,Double R3,Double R4,Double R5) throws SQLException {
-//		
-//		
-//		boolean ok=false;
-//		
-//
-//		Connection conn = datasource.getConnection();
-//
-////		conn.setAutoCommit(false);
-//		try {
-//		
-//			int idusuarioentablausuario_test=0;
-//			int idtestentablausuario_test=0;
-//
-//			System.out.println(emailrec+nombrerec+userrec+password1rec);
-//			String sql = "	INSERT INTO usuario (email, name,Username, password) VALUES (?,?,?,?);";
-//			
-//			PreparedStatement psmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-//			psmt.setString(1,emailrec);
-//			psmt.setString(2,nombrerec );
-//			psmt.setString(3,userrec );
-//			psmt.setString(4,password1rec );
-//
-//			System.out.println(psmt);
-//			psmt.executeUpdate();
-//
-//			ResultSet rs = psmt.getGeneratedKeys();
-//			if (rs.next()) {
-//			 idusuarioentablausuario_test = rs.getInt(1);
-//			System.out.println("idusuario"+idusuarioentablausuario_test);
-//			}
-//			//rs.close();			
-//			rs.close();
-//
-//			psmt.close();
-//			System.out.println("Usuario bien");
-//			
-//			
-//			
-//		 sql = "INSERT INTO test( respuesta1, respuesta2, respuesta3, respuesta4, respuesta5, anxiety, depression, social_anxiety, stress) VALUES (?,?,?,?,?,?,?,?,?);";
-//		  psmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-//			
-//			psmt.setDouble(1,R1);//Se generan solos o me va a tocar darle al AI?//
-//			psmt.setDouble(2,R2 );
-//			psmt.setDouble(3,R3 );
-//			psmt.setDouble(4,R4 );
-//			psmt.setDouble(5,R5 );
-//			psmt.setDouble(6, anxiedad );
-//			psmt.setDouble(7, depresion);
-//			psmt.setDouble(8, estres );
-//			psmt.setDouble(9, anxiedadsocial);	
-//			
-//			System.out.println(psmt);
-//
-//			psmt.executeUpdate();
-//
-//			 rs = psmt.getGeneratedKeys();
-//			 
-//			 if (rs.next()) {
-//				 idtestentablausuario_test = rs.getInt(1);
-//				System.out.println("idusuario"+idtestentablausuario_test);
-//				}
-//			 
-//				
-//			rs.close();
-//			psmt.close();
-//			System.out.println("Test bien");
-//
-//			
-//			
-//			 sql = "INSERT INTO test_usuario(tid, uid) VALUES (?,?);";
-//			  psmt = conn.prepareStatement(sql);
-//			  psmt.setInt(1,idtestentablausuario_test);
-//			  psmt.setInt(2,idusuarioentablausuario_test);
-//
-//				psmt.executeUpdate();
-//				
-//				rs.close();
-//				psmt.close();
-//				conn.close();
-//				System.out.println("Usuario-test bien");
-//
-//
-//		} 
-//			catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//				conn.rollback();
-//
-//			} 
-//			
-//			
-//			ok=true;
-//			
-//			
-//			return ok;
-//		
-//
-//	}
+
+
+	
+	
+	
+public boolean subidausuario(String nombrerec, String emailrec, String userrec, String password1rec, Double anxiedad, Double depresion, Double estres, Double anxiedadsocial,Double R1,Double R2,Double R3,Double R4,Double R5) throws SQLException {
+	
+		
+		boolean ok=false;
+		
+
+		Connection conn = datasource.getConnection();
+
+	  //  conn.setAutoCommit(true);
+		try {
+		
+			int idusuarioentablausuario_test=0;
+			int idtestentablausuario_test=0;
+
+			System.out.println(emailrec+nombrerec+userrec+password1rec);
+			String sql = "	INSERT INTO usuario (email, name,Username, password) VALUES (?,?,?,?);";
+			
+			PreparedStatement psmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+			psmt.setString(1,emailrec);
+			psmt.setString(2,nombrerec );
+			psmt.setString(3,userrec );
+			psmt.setString(4,password1rec );
+
+			System.out.println(psmt);
+			psmt.executeUpdate();
+
+			ResultSet rs = psmt.getGeneratedKeys();
+			if (rs.next()) {
+			 idusuarioentablausuario_test = rs.getInt(1);
+			System.out.println("idusuario"+idusuarioentablausuario_test);
+			}
+			//rs.close();			
+			rs.close();
+
+			psmt.close();
+			System.out.println("Usuario bien");
+			
+			
+			
+		 sql = "INSERT INTO test( respuesta1, respuesta2, respuesta3, respuesta4, respuesta5, anxiety, depression, social_anxiety, stress) VALUES (?,?,?,?,?,?,?,?,?);";
+		  psmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			
+			psmt.setDouble(1,R1);//Se generan solos o me va a tocar darle al AI?//
+			psmt.setDouble(2,R2 );
+			psmt.setDouble(3,R3 );
+			psmt.setDouble(4,R4 );
+			psmt.setDouble(5,R5 );
+			psmt.setDouble(6, anxiedad );
+			psmt.setDouble(7, depresion);
+			psmt.setDouble(8, estres );
+			psmt.setDouble(9, anxiedadsocial);	
+			
+			System.out.println(psmt);
+
+			psmt.executeUpdate();
+
+			 rs = psmt.getGeneratedKeys();
+			 
+			 if (rs.next()) {
+				 idtestentablausuario_test = rs.getInt(1);
+				System.out.println("idusuario"+idtestentablausuario_test);
+				}
+			 
+				
+			rs.close();
+			psmt.close();
+			System.out.println("Test bien");
+
+			
+			
+			 sql = "INSERT INTO test_usuario(tid, uid) VALUES (?,?);";
+			  psmt = conn.prepareStatement(sql);
+			  psmt.setInt(1,idtestentablausuario_test);
+			  psmt.setInt(2,idusuarioentablausuario_test);
+
+				psmt.executeUpdate();
+				
+				rs.close();
+				psmt.close();
+				//conn.close();
+				System.out.println("Usuario-test bien");
+
+
+		} 
+			catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				conn.rollback();
+
+			} 
+			
+			
+			ok=true;
+			
+			
+			return ok;
+		
+
+	}
 
 	public boolean getuserbyusarnameormailandpassword(String username, String passwordrec) throws SQLException {
 
@@ -181,7 +187,7 @@ public class UserDAO extends DAO {
 				vale = true;
 			}
 			if (count != 0) {
-				System.out.println("El usuario ya esta");
+				System.out.println("El usuario ya esta en la base de datos");
 				vale = false;
 			}
 			psmt.close();
@@ -285,7 +291,7 @@ public class UserDAO extends DAO {
 
 		while (rs.next()) {
 
-			resUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), null, null, rs.getString(4));
+			resUser = new User(rs.getInt(1), rs.getString(2), rs.getString(3), null, rs.getString(4));
 
 		}
 		rs.close();
@@ -340,32 +346,33 @@ public class UserDAO extends DAO {
 
 		Connection conn = datasource.getConnection();
 
-		conn.setAutoCommit(false);
+	//	conn.setAutoCommit(true);//Change to true
 
 		try {
-			String sql = "DELETE FROM test_usuario WHERE uid=?";
+			//String sql = "DELETE FROM test_usuario WHERE uid=?";
+			//PreparedStatement psmt = conn.prepareStatement(sql);
+			//psmt.setInt(1, id);
+
+			//psmt.executeUpdate();
+			//psmt.close();
+
+			String sql = "DELETE FROM usuario WHERE id=?";
 			PreparedStatement psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, id);
-
-			psmt.executeUpdate();
-			psmt.close();
-
-			sql = "DELETE FROM usuario WHERE id=?";
-			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, id);
 
 			psmt.executeUpdate();
 			resUser = true;
 
 			psmt.close();
-			conn.commit();
+			conn.close();
+			//conn.commit();
 		} catch (Exception e) {
 			System.out.println("Excep Tx:" + e.getMessage());
-			conn.rollback();
-			throw new SQLException();
-		} finally {
-			conn.close();
-		}
+			//conn.rollback();
+			//throw new SQLException();
+		} 
+			
+		
 
 		return resUser;
 	}
@@ -398,5 +405,31 @@ public class UserDAO extends DAO {
 		
 		
 	}
+
+	
+	public Intermediate intermediate(Intermediate inter) throws SQLException{
+
+		Intermediate resinter = inter;
+
+		Connection conn = datasource.getConnection();
+	
+		String sql = "INSERT INTO test_usuario(uid, tid) VALUES (?,?);";
+		PreparedStatement psmt =  conn.prepareStatement(sql);
+		System.out.println(psmt);
+		psmt.setInt(1,resinter.getUid());
+		psmt.setInt(2,resinter.getTid());
+
+		psmt.executeUpdate();
+		System.out.println(psmt);
+	
+		psmt.close();
+		conn.close();
+		System.out.println("Usuario-test bien");
+		
+		
+		return resinter;
+	
+
+}
 
 }
