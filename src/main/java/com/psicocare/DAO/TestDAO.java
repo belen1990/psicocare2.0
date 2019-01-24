@@ -190,18 +190,18 @@ public class TestDAO extends DAO  {
 		Connection conn = datasource.getConnection();
 		//conn.setAutoCommit(false); Hay que hacer autocommit
 		
-		String sq2 = "DELETE FROM test_usuario WHERE tid=?;";
+	/*	String sq2 = "DELETE FROM test_usuario WHERE tid=?;";
 		PreparedStatement psmt = conn.prepareStatement(sq2);
 		psmt.setInt(1, tid);
 		System.out.println(psmt);
 		psmt.executeUpdate();
-		System.out.println(psmt);
+		System.out.println(psmt);*/
 
 
 		
 		String sql = "DELETE FROM test WHERE tid=?;";
 
-		 psmt = conn.prepareStatement(sql);
+		PreparedStatement psmt = conn.prepareStatement(sql);
 		psmt.setInt(1, tid);
 		System.out.println(psmt);
 
