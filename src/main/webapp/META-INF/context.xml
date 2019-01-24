@@ -3,9 +3,9 @@
 <Context>
     <!-- Specify a JDBC datasource -->
     <Resource name="jdbc/psicocare" auth="Container"
-        type="javax.sql.DataSource" username="psicocare_user" password="psicokiller"
+        type="javax.sql.DataSource" username="root" password="12345678"
         driverClassName="com.mysql.jdbc.Driver"
-        url="jdbc:mysql://localhost/psicocare"
+        url="jdbc:mysql://psicocare-rds.cyy8czsbylmu.us-west-2.rds.amazonaws.com/psicocare"
         maxActive="10" maxIdle="4" />
 </Context>
 
