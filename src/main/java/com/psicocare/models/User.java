@@ -11,6 +11,10 @@ public class User {
 	private Test test;
 	private String username;
 	
+public User(){
+		
+	}
+	
 	public User(int id, String name, String email, String password, Test test, String username) {
 		super();
 		this.id = id;
@@ -69,7 +73,10 @@ public class User {
 	
 	
 	
-	
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nombre=" + email + ", email=" + email+ "]";
+	}
 
 	
 
